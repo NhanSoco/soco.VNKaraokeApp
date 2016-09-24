@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="KaraokeN4.LeftMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KaraokeN4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800"
+    d:DesignWidth="480">
+
+    <UserControl.Resources>
+        <!--Menu button template-->
+        <ControlTemplate x:Key="labelButtonTemplate" TargetType="Button">
+            <Grid Tag="{Binding Path=Name, RelativeSource={RelativeSource TemplatedParent}}"
+                Tapped="Grid_Tapped" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Width="20" Grid.Column="0" 
+                    Margin="10, 0" HorizontalAlignment="Left"
+                    Source="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock FontSize="15" Grid.Column="1"
+                    Margin="5, 0" HorizontalAlignment="Left" Foreground="Black"
+                    Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Header-->
+                <StackPanel Orientation="Vertical" Margin="0" Background="#36535E">
+                    <TextBlock x:Name="headerTitle" Text="Arirang 5 so" FontSize="20"
+                               VerticalAlignment="Bottom" Foreground="White"
+                               Margin="15, 5"/>
+                    <TextBlock x:Name="headerDesc" Text="Dau karaoke Arirang 5 so" FontSize="20"
+                               VerticalAlignment="Bottom" Foreground="Cyan"
+                               Margin="15, 5"/>
+                </StackPanel>
+            
+                <!--Button List-->
+                <StackPanel Orientation="Vertical" Grid.Row="1" Background="White">
+                    
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

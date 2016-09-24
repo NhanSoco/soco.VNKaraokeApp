@@ -1,0 +1,85 @@
+﻿<UserControl
+    x:Class="KaraokeN4.RightMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KaraokeN4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500"
+    d:DesignWidth="400">
+
+
+    <UserControl.Resources>
+        <!--Menu button template-->
+        <ControlTemplate x:Key="labelButtonTemplate" TargetType="Button">
+            <Grid Tag="{Binding Path=Name, RelativeSource={RelativeSource TemplatedParent}}"
+                Tapped="labelButton_Tapped" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>                    
+                
+                <Image Width="20" Grid.Column="0" 
+                    Margin="10, 0" HorizontalAlignment="Left"
+                    Source="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock FontSize="15" Grid.Column="1"
+                    Margin="5, 0" HorizontalAlignment="Left" Foreground="Black"
+                    Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </Grid>
+        </ControlTemplate>    
+    </UserControl.Resources>
+    
+    
+    <Grid>
+        <!--<Rectangle Fill="White" Stroke="Gray" RadiusX="10" RadiusY="10" />-->
+        <Rectangle Fill="White" Stroke="Gray" />
+
+        <ScrollViewer IsVerticalScrollChainingEnabled="True">
+            <StackPanel HorizontalAlignment="Left">
+                
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="Recent"
+                        Tag="/Assets/back.png"
+                        Content="Moi xem gan day" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="ViewAll"
+                        Tag="/Assets/back.png"
+                        Content="Xem toan bo danh sach" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NewVolume"
+                        Tag="/Assets/back.png"
+                        Content="Danh sach vol moi" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacTre"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Tre" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacNgoai"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Ngoai Loi Viet" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacTrinh"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Trinh" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacTruTinh"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Tru Tinh" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacCachMang"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Cach Mang" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacThieuNhi"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Thieu Nhi" MinHeight="40"/>
+                <Button Template="{Binding Source={StaticResource labelButtonTemplate}}"
+                        Name="NhacTiengAnh"
+                        Tag="/Assets/back.png"
+                        Content="Nhac Tieng Anh" MinHeight="40"/>
+                
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
